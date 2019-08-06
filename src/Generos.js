@@ -37,9 +37,10 @@ const Generos = () => {
   if (data.length === 0) {
     return (
       <div className='container'>
-        <h1>Generos</h1>
+        <h1>Gêneros</h1>
+        <Link to='/generos/novo' className='btn btn-primary'>Novo gênero</Link>
         <div className='alert alert-warning' role='alert'>
-          No data
+          Nenhum gênero cadastrado!
         </div>
       </div>
     )
@@ -47,8 +48,8 @@ const Generos = () => {
 
   return (
     <div className='container'>
-      <h1>Generos</h1>
-      <div><Link to='/generos/novo'> Novo genêro </Link></div>
+      <h1>Gêneros</h1>
+      <div><Link to='/generos/novo' className='btn btn-primary'> Novo genêro </Link></div>
       <table className='table table-dark'>
         <thead>
           <tr>

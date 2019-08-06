@@ -13,7 +13,7 @@ const NovoGenero = () => {
     axios
       .post('/api/genres', { name })
       .then(res => {
-        console.log(res)
+        setSuccess(true)
       })
   }
 
@@ -23,11 +23,18 @@ const NovoGenero = () => {
 
   return (
     <div className='container'>
-      <h1>Novos Genêros</h1>
+      <h1>Novo Gênero</h1>
       <form>
         <div className='form-group'>
-          <label htmlFor='name'> Email address </label>
-          <input type='text' value={name} onChange={onChange} className='form-control' id='name' placeholder='Nome do Genêro' />
+          <label htmlFor='name'> Nome </label>
+          <input
+            type='text'
+            value={name}
+            onChange={onChange}
+            className='form-control'
+            id='name'
+            placeholder='Nome do Genêro'
+          />
         </div>
         <button type='button' onClick={save} className='btn btn-primary'> Salvar </button>
       </form>
