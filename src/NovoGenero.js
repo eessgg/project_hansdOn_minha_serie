@@ -3,22 +3,24 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
 const NovoGenero = () => {
-  const [name, setNamne] = useState('')
-  const [success, setSuccess] = useState(false)
+  const [name, setName] = useState('')
+
   const onChange = evt => {
-    setNamne(evt.target.value)
+    setName(evt.target.value)
   }
 
+  const [success, setSuccess] = useState(false)
+
   const save = () => {
-    axios
-      .post('/api/genres', { name })
-      .then(res => {
-        setSuccess(true)
-      })
+    axios.post('/api/genres', { name }).then(res => {
+      setSuccess(true)
+    })
   }
 
   if (success) {
-    return <Redirect to='/generos' />
+    return (
+      <Redirect to='/generos/' />
+    )
   }
 
   return (
@@ -26,17 +28,10 @@ const NovoGenero = () => {
       <h1>Novo Gênero</h1>
       <form>
         <div className='form-group'>
-          <label htmlFor='name'> Nome </label>
-          <input
-            type='text'
-            value={name}
-            onChange={onChange}
-            className='form-control'
-            id='name'
-            placeholder='Nome do Genêro'
-          />
+          <label htmlFor='name'>Nome</label>
+          <input type='text' value={name} onChange={onChange} className='form-control' id='name' placeholder='Nome do Gênero' />
         </div>
-        <button type='button' onClick={save} className='btn btn-primary'> Salvar </button>
+        <button type='button' onClick={save} className='btn btn-primary'>Salvar</button>
       </form>
     </div>
   )

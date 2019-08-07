@@ -28,7 +28,7 @@ const Generos = () => {
         <td>{record.name}</td>
         <td>
           <button className='btn btn-danger' onClick={() => deleteGenero(record.id)} > Remover </button>
-          <Link to={'/generos/' + record.id}>Editar</Link>
+          <Link className='btn btn-warning' to={'/generos/' + record.id}>Editar</Link>
         </td>
       </tr>
     )
@@ -38,7 +38,9 @@ const Generos = () => {
     return (
       <div className='container'>
         <h1>Gêneros</h1>
-        <Link to='/generos/novo' className='btn btn-primary'>Novo gênero</Link>
+        <div>
+          <Link to='/generos/novo' className='btn btn-primary'>Novo gênero</Link>
+        </div>
         <div className='alert alert-warning' role='alert'>
           Nenhum gênero cadastrado!
         </div>
@@ -49,7 +51,9 @@ const Generos = () => {
   return (
     <div className='container'>
       <h1>Gêneros</h1>
-      <div><Link to='/generos/novo' className='btn btn-primary'> Novo genêro </Link></div>
+      <div>
+        <Link to='/generos/novo' className='btn btn-primary'> Novo gênero </Link>
+      </div>
       <table className='table table-dark'>
         <thead>
           <tr>

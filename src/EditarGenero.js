@@ -19,14 +19,14 @@ const EditarGenero = ({ match }) => {
 
   const save = () => {
     axios
-      .put('/api/genres' + match.params.id)
+      .put('/api/genres' + match.params.id, {name})
       .then(res => {
         setSuccess(true)
       })
   }
 
   if (success) {
-    return <Redirect to='/generos' />
+    return <Redirect to='/generos/' />
   }
 
   return (
@@ -41,7 +41,7 @@ const EditarGenero = ({ match }) => {
             onChange={onChange}
             className='form-control'
             id='name'
-            placeholder='Nome do Genêro'
+            placeholder='Nome do Gênero'
           />
         </div>
         <button type='button' onClick={save} className='btn btn-primary'> Salvar </button>
